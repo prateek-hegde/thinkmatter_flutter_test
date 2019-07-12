@@ -1,16 +1,35 @@
-# test_app
+# Skillrays flutter test
 
-A new Flutter application.
+Skillrays flutter test
 
-## Getting Started
+There are 3 tasks that should't take more than 2 hours total
+Feel free to contact me for help
 
-This project is a starting point for a Flutter application.
+# About app
 
-A few resources to get you started if this is your first Flutter project:
+This is a small shopping app with most of code already written
+There are two screens
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+1. MenuScreen
+   It has list of all items (products). Tapping a item should add it to cart
+   ItemTile shows details regarding name, img, price of product
+   
+2. CartScreen
+   Tapping cart icon in top-right of menu screen takes you to cart
+   Here all items added to cart should be displayed along with quantity
+   Add button to remove item from cart
+   
+Take a look at providers/cart.dart for helper methods and data model
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# What you need to do
+
+- Fork this repo
+- ToDo 1: Improve item tile widget in MenuScreen to display image and make it tappable; clicking it should add item to cart
+- ToDo 2: Display List of order items in cart with their quantity in CartScreen
+- ToDo 2: Add button to remove item from cart (Helper function already exists in cart provider)
+- Email me link to your forked repo
+
+
+
+
+
