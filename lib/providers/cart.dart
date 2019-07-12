@@ -56,8 +56,9 @@ class Cart extends ChangeNotifier {
 
   void addItemToCart(Item item) {
     // Check if order already in cart; If yes increase its quantity else add to cart
-    OrderItem orderItem =
-        _cartItems.firstWhere((orderItem) => orderItem.item.id == item.id);
+    OrderItem orderItem = _cartItems.firstWhere(
+        (orderItem) => orderItem.item.id == item.id,
+        orElse: () => null);
     if (orderItem != null) {
       orderItem.quantity += 1;
       notifyListeners();
