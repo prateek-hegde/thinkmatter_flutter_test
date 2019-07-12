@@ -29,6 +29,12 @@ Take a look at providers/cart.dart for helper methods and data model
 - ToDo 2: Add button to remove item from cart (Helper function already exists in cart provider)
 - Email me link to your forked repo
 
+# Finished Samples
+Though you can be creative :)
+
+! [MenuScreen](https://ibb.co/SP0D3rh)
+! [CartScreen](https://ibb.co/XbDDz03)
+
 
 
 
