@@ -66,7 +66,7 @@ class MenuScreen extends StatelessWidget {
 class CartScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Cart cart = Provider.of<Cart>(context, listen: false);
+    Cart cart = Provider.of<Cart>(context);
     return Scaffold(
         appBar: AppBar(
           title: Text("Cart"),
