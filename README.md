@@ -32,8 +32,8 @@ Take a look at providers/cart.dart for helper methods and data model
 # Finished Samples
 Though you can be creative :)
 
-![MenuScreen](https://i.ibb.co/G0kf5TK/Screenshot-20190713-041442.jpg)
-![CartScreen](https://i.ibb.co/W600c8P/Screenshot-20190713-041456.jpg)
+![MenuScreen](https://i.ibb.co/G0kf5TK/Screenshot-20190713-041442.jpg | width=300)
+![CartScreen](https://i.ibb.co/W600c8P/Screenshot-20190713-041456.jpg | width=300)
 
 
 
