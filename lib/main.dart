@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
+import 'package:test_app/cart/cart_screen.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'providers/cart.dart';
 
 void main() => runApp(MultiProvider(providers: [
@@ -13,6 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Skillrays',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -28,13 +30,34 @@ class ItemTile extends StatelessWidget {
 
   const ItemTile({Key key, this.item}) : super(key: key);
 
+  void _showToast(String message) {
+    Fluttertoast.showToast(
+        msg: message,
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.BOTTOM,
+        timeInSecForIos: 1,
+        backgroundColor: Colors.black,
+        textColor: Colors.white,
+        fontSize: 15.0);
+  }
+
   @override
   Widget build(BuildContext context) {
-    // TODO 1: Improve item tile widget to display image and make it tappable; clicking it should add item to cart
-    // Hint: Use cart objects method to add item to cart
     Cart cart = Provider.of<Cart>(context, listen: false);
     return ListTile(
-        title: Text(item.name), subtitle: Text("Rs. ${item.price}"));
+      leading: Image.network(
+        item.image,
+        fit: BoxFit.cover,
+        width: 40.0,
+        height: 40.0,
+      ),
+      title: Text(item.name),
+      subtitle: Text("Rs. ${item.price}"),
+      onTap: () {
+        cart.addItemToCart(item);
+        _showToast("Item added to the cart");
+      },
+    );
   }
 }
 
@@ -49,7 +72,7 @@ class MenuScreen extends StatelessWidget {
           IconButton(
             icon: Icon(Icons.shopping_cart),
             onPressed: () => Navigator.pushNamed(context, "/cart"),
-          )
+          ),
         ],
       ),
       body: ListView.builder(
@@ -58,23 +81,5 @@ class MenuScreen extends StatelessWidget {
             return ItemTile(item: cart.getAllItems()[index]);
           }),
     );
-  }
-}
-
-// ToDo 2: Display List of order items in cart with their quantity
-// ToDo 3: Add button to remove item from cart (Helper function already exists in cart provider)
-class CartScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    Cart cart = Provider.of<Cart>(context);
-    return Scaffold(
-        appBar: AppBar(
-          title: Text("Cart"),
-        ),
-        body: cart.getCartItems().isEmpty
-            ? Center(
-                child: Text("No items in cart"),
-              )
-            : ListView.builder(itemBuilder: null));
   }
 }
